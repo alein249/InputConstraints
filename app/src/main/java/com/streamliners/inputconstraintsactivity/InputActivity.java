@@ -5,16 +5,16 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.streamliners.inputconstraintsactivity.databinding.ActivityMainBinding;
+import com.streamliners.inputconstraintsactivity.databinding.ActivityInputBinding;
 
 public class InputActivity extends AppCompatActivity {
 
-    ActivityMainBinding bind;
+    ActivityInputBinding bind;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bind = ActivityMainBinding.inflate(getLayoutInflater());
+        bind = ActivityInputBinding.inflate(getLayoutInflater());
         setContentView(bind.getRoot());
 
         // set title of the activity

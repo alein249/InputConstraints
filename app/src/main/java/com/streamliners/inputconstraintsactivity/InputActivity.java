@@ -1,13 +1,13 @@
-package com.streamliners.inputconstraints;
+package com.streamliners.inputconstraintsactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.streamliners.inputconstraints.databinding.ActivityMainBinding;
+import com.streamliners.inputconstraintsactivity.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class InputActivity extends AppCompatActivity {
 
     ActivityMainBinding bind;
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // sending the result back to the activity
-            Intent intent = new Intent(MainActivity.this, InputConstraints.class);
+            Intent intent = new Intent(InputActivity.this, InputConstraintsActivity.class);
             intent.putExtra(Constants.INPUT_DATA, text);
             setResult(RESULT_OK, intent);
 

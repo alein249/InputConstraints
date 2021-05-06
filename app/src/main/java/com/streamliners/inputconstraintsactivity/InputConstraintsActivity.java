@@ -1,4 +1,4 @@
-package com.streamliners.inputconstraints;
+package com.streamliners.inputconstraintsactivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.streamliners.inputconstraints.databinding.ActivityInputConstraintsBinding;
+import com.streamliners.inputconstraintsactivity.databinding.ActivityInputConstraintsBinding;
 
-public class InputConstraints extends AppCompatActivity {
+public class InputConstraintsActivity extends AppCompatActivity {
 
     // request code of data transfer
     private static final int REQUEST_INPUT = 0;
@@ -42,12 +42,12 @@ public class InputConstraints extends AppCompatActivity {
 
             //Check bundle
             if(bundle.isEmpty()){
-                Toast.makeText(InputConstraints.this, "Select constraints", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InputConstraintsActivity.this, "Select constraints", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             //Send Constraints to InputActivity
-            Intent intent = new Intent(InputConstraints.this, MainActivity.class);
+            Intent intent = new Intent(InputConstraintsActivity.this, InputActivity.class);
             intent.putExtras(bundle);
             startActivityForResult(intent, REQUEST_INPUT);
         });

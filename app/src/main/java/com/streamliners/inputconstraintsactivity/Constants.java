@@ -1,4 +1,4 @@
-package com.streamliners.inputconstraints;
+package com.streamliners.inputconstraintsactivity;
 
 
 /**

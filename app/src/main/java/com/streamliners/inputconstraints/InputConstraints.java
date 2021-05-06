@@ -26,35 +26,62 @@ public class InputConstraints extends AppCompatActivity {
         // set title of the activity
         setTitle("InputConstraints Activity");
 
+        //Send constraint
         sendConstraints();
     }
 
+    /**
+     * Send constraints to InputActivity
+     */
     private void sendConstraints() {
+        //click event listener on TakeInput Button
         bind.btnInput.setOnClickListener(v -> {
+
+            //To put the constraints in bundle
             inputConstraints();
+
+            //Check bundle
             if(bundle.isEmpty()){
                 Toast.makeText(InputConstraints.this, "Select constraints", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            //Send Constraints to InputActivity
             Intent intent = new Intent(InputConstraints.this, MainActivity.class);
             intent.putExtras(bundle);
             startActivityForResult(intent, REQUEST_INPUT);
         });
     }
+
+    /**
+     * which constraint user checked
+     * And put the constraint in bundle
+     */
     private void inputConstraints(){
+        //Initialize bundle
         bundle = new Bundle();
+
+        //To check user select upperCase constraint
         if(bind.uppercaseCheckBox.isChecked()){
             bundle.putString(Constants.UPPERCASE_ALPHABETS, "true");
         }
+
+        //To check user select lowerCase constraint
         if(bind.lowercaseCheckBox.isChecked()){
             bundle.putString(Constants.LOWERCASE_ALPHABETS, "true");
         }
+
+        //To check user select digit constraint
         if(bind.digitsCheckBox.isChecked()){
             bundle.putString(Constants.DIGITS, "true");
         }
+
+        //To check user select operators constraint
         if(bind.operationsCheckBox.isChecked()){
             bundle.putString(Constants.MATHEMATICAL_OPERATORS, "true");
         }
+
+        //To check user select symbol constraint
         if(bind.symbolsCheckBox.isChecked()){
             bundle.putString(Constants.OTHER_SYMBOLS, "true");
         }

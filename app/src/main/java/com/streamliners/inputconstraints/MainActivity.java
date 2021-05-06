@@ -23,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
         sendInput();
     }
 
+    /**
+     * Sending data to InputConstraints Activity
+     */
     private void sendInput() {
+        //click event on SendBack Button
         bind.btnData.setOnClickListener(v -> {
             String text = bind.inputTextField.getEditText().getText().toString().trim();
 
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 bind.inputTextField.setError("Please enter text");
                 return;
             }
+            //check data  validation
             else if(!text.matches(checkConstraints())){
                 bind.inputTextField.setError("Invalid");
                 return;
@@ -47,31 +52,41 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * To check data Validation
+     *
+     * @return String of regex
+     */
     private String checkConstraints() {
         Bundle bundle = getIntent().getExtras();
         // use to store the regex generated
         StringBuilder regex = new StringBuilder();
         regex.append("^([");
+        //check data contain Uppercase letters
         if(Boolean.parseBoolean(bundle.getString(Constants.UPPERCASE_ALPHABETS, "false"))){
             regex.append("A-Z");
 
         }
 
+        //check data contain Lowercase letters
         if(Boolean.parseBoolean(bundle.getString(Constants.LOWERCASE_ALPHABETS,"false"))){
             regex.append("a-z");
 
         }
 
+        //check data contain Numbers
         if(Boolean.parseBoolean(bundle.getString(Constants.DIGITS,"false"))){
             regex.append("0-9");
 
         }
 
+        //check data contain Operators
         if(Boolean.parseBoolean(bundle.getString(Constants.MATHEMATICAL_OPERATORS,"false"))){
             regex.append("+-/*%");
 
         }
 
+        //check data contain symbols
         if(Boolean.parseBoolean(bundle.getString(Constants.OTHER_SYMBOLS,"false"))){
             regex.append("#@!&$");
         }
